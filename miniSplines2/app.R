@@ -43,6 +43,7 @@ server <- function(input, output, session)
             as.integer(input$intercept)
         resMat <- do.call(fun, list(x = x, df = df, degree = input$degree,
                                     intercept = input$intercept))
+        par(mar = c(2.5, 2.5, 0, 0), mgp = c(1.5, 0.5, 0))
         matplot(x, resMat, type = "l", xlab = "x",
                 ylab = "Spline Bases", lwd = input$lwd)
         abline(v = attr(resMat, "knots"), col = "gray",
